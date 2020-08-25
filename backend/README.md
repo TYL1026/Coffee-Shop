@@ -52,28 +52,28 @@ The `--reload` flag will detect file changes and restart the server automaticall
 
 ### Setup Auth0
 
-1. Create a new Auth0 Account --DONE
-2. Select a unique tenant domain --DONE
-3. Create a new, single page web application --DONE
-4. Create a new API --DONE
-    - in API Settings: --DONE
+1. Create a new Auth0 Account 
+2. Select a unique tenant domain
+3. Create a new, single page web application
+4. Create a new API
+    - in API Settings:
         - Enable RBAC
         - Enable Add Permissions in the Access Token
-5. Create new API permissions: --DONE
+5. Create new API permissions:
     - `get:drinks-detail`
     - `post:drinks`
     - `patch:drinks`
     - `delete:drinks`
-6. Create new roles for: --DONE
+6. Create new roles for:
     - Barista
         - can `get:drinks-detail`
     - Manager
         - can perform all actions
 7. Test your endpoints with [Postman](https://getpostman.com). 
-    - Register 2 users - assign the Barista role to one and Manager role to the other. --DONE
+    - Register 2 users - assign the Barista role to one and Manager role to the other.
     - Sign into each account and make note of the JWT. --DONE
-    - Import the postman collection `./starter_code/backend/udacity-fsnd-udaspicelatte.postman_collection.json` --DONE 
-    - Right-clicking the collection folder for barista and manager, navigate to the authorization tab, and including the JWT in the token field (you should have noted these JWTs). --DONE
+    - Import the postman collection `./starter_code/backend/udacity-fsnd-udaspicelatte.postman_collection.json`
+    - Right-clicking the collection folder for barista and manager, navigate to the authorization tab, and including the JWT in the token field (you should have noted these JWTs).
     - Run the collection and correct any errors.
     - Export the collection overwriting the one we've included so that we have your proper JWTs during review!
 
