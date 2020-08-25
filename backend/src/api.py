@@ -16,7 +16,7 @@ CORS(app)
 !! NOTE THIS WILL DROP ALL RECORDS AND START YOUR DB FROM SCRATCH
 !! NOTE THIS MUST BE UNCOMMENTED ON FIRST RUN
 '''
-# db_drop_and_create_all()
+db_drop_and_create_all()
 
 ## ROUTES
 '''
@@ -79,13 +79,47 @@ CORS(app)
 '''
 Example error handling for unprocessable entity
 '''
+@app.errorhandler(AuthError)
+def authentication_eror(error):
+    return jsonify({
+        'success': False,
+        'error': AuthError.status_code,
+        'message': get_error_message(AuthError.error, "Authentication failure")
+    }), AuthError.status_code
+
+@app.errorhandler(403)
+def not_found(error):
+    return jsonify({
+        'success': False,
+        'error': 403,
+        'message': "Forbidden"
+    }), 403
+  
+@app.errorhandler(404)
+def not_found(error):
+    return jsonify({
+        'success': False,
+        'error': 404,
+        'message': "Not found"
+    }), 404 
+
 @app.errorhandler(422)
 def unprocessable(error):
     return jsonify({
-                    "success": False, 
-                    "error": 422,
-                    "message": "unprocessable"
-                    }), 422
+        'success': False,
+        'error': 422,
+        'message': "Unprocessable"
+    }), 422
+
+@app.errorhandler(500)
+def internal(error):
+    return jsonify({
+        'success': False,
+        'error': 500,
+        'message': "Internal server error"
+    }), 500
+
+
 
 '''
 @TODO implement error handlers using the @app.errorhandler(error) decorator
