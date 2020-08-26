@@ -1,5 +1,5 @@
 import json
-from flask import Flask, request, _request_ctx_stack
+from flask import request, _request_ctx_stack, abort
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
@@ -18,7 +18,6 @@ class AuthError(Exception):
         self.error = error
         self.status_code = status_code
 
-
 ## Auth Header
 
 '''
@@ -30,8 +29,6 @@ class AuthError(Exception):
     return the token part of the header
 '''
 def get_token_auth_header():
-#    raise Exception('Not Implemented')
-
     auth = request.headers.get('Authorization', None)
     if not auth:
         raise AuthError({
@@ -73,7 +70,6 @@ def get_token_auth_header():
     return true otherwise
 '''
 def check_permissions(permission, payload):
-    # raise Exception('Not Implemented')
     if 'permissions' not in payload:
                         raise AuthError({
                             'code': 'invalid_claims',
@@ -169,14 +165,9 @@ def requires_auth(permission=''):
         @wraps(f)
         def wrapper(*args, **kwargs):
             token = get_token_auth_header()
-            try:
-                payload = verify_decode_jwt(token)
-            except:
-                abort(401)
-            
+            payload = verify_decode_jwt(token)            
             check_permissions(permission, payload)
             return f(payload, *args, **kwargs)
 
         return wrapper
     return requires_auth_decorator
-
