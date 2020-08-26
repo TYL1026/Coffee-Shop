@@ -12,6 +12,16 @@ from .auth.auth import AuthError, requires_auth
 app = Flask(__name__)
 setup_db(app)
 CORS(app)
+# initializing CORS to enable cross-domain requests
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+
+# setting response headers
+@app.after_request
+def after_request(response):
+    response.headers.add('Acess-Control-Allow-Headers', 'Content-Type, Authorization, true')
+    response.headers.add('Acess-Control-Allow-Methods', 'GET, POST, DELETE')
+    return response
+
 
 '''
 @TODO uncomment the following line to initialize the datbase
@@ -94,23 +104,21 @@ def create_drink(token):
 
     # seeing if the json includes the required data
     if not ('title' in body and 'recipe' in body):
-        abort(400)
+        abort(422)
 
     # getting each element from the body
-    new_recipe = body.get('recipe')
-    new_title = body.get('title')
+    new_recipe = json.dumps(body['recipe'])
+    new_title = body['title']
 
     # attempting to add the new drink, else throw an unprocessable error
-    try:
-        drink = Drink(recipe=json.dumps(new_recipe), title=new_title)
-        drink.insert()
+    drink = Drink(recipe=new_recipe, title=new_title)
+    drink.insert()
 
-        return jsonify({
-            'success': True,
-            'drinks': [drink.long()]    
-        }), 200    
-    except:
-        abort(422)
+    return jsonify({
+        'success': True,
+        'drinks': [drink.long()]    
+    }), 200    
+
 
 '''
 @TODO implement endpoint
@@ -125,9 +133,7 @@ def create_drink(token):
 '''
 @app.route('/drinks/<int:drink_id>', methods=['PATCH'])
 @requires_auth('patch:drinks')
-def update_drink(token, drink_id):
-    # getting the json response body
-    body = request.get_json()
+def update_drink(token, drink_id):   
     # search the database for the given drink_id
     drink = Drink.query.filter_by(id=drink_id).one_or_none()
 
@@ -138,15 +144,18 @@ def update_drink(token, drink_id):
             'drinks': []
         }), 404    
 
+    # getting the json response body
+    body = request.get_json()
+
     # getting each element from the body
     new_recipe = body.get('recipe')
     new_title = body.get('title')
 
     try:
         # checking to see which item will be affected
-        if (new_recipe):
+        if ('recipe' in data):
             drink.recipe = json.dumps(body['recipe'])
-        if (new_title):
+        if ('title' in data):
             drink.title = new_title
     except:
         abort(400)
@@ -174,22 +183,20 @@ def delete_drink(token, drink_id):
     # gettint the drink to delete
     drink = Drink.query.filter_by(id=drink_id).one_or_none()
 
-    if (drink is None):
-        return jsonify({
-            'success': False,
-            'drinks': []
-        }), 404
-      
-    try:
-      # delete the question if it exists and redisplay the questions
-      drink.delete()
+    # if (drink is None):
+    return jsonify({
+        'success': False,
+        'drinks': []
+    }), 404      
 
-      return jsonify({
-        'success': True,
-        'deleted': drink_id
-      }), 200    
-    except:
-      abort(422)
+    # delete the question if it exists and redisplay the questions
+    drink.delete()
+
+    return jsonify({
+    'success': True,
+    'deleted': drink.id
+    }), 200    
+
 
 ## Error Handling
 '''
