@@ -7,8 +7,8 @@ from flask_cors import CORS
 from .database.models import db_drop_and_create_all, setup_db, Drink
 from .auth.auth import AuthError, requires_auth
 
-# manager new: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlNFYWpVclc4RFZubFIta1U4b2QwRyJ9.eyJpc3MiOiJodHRwczovL3VuMWNvcm4udXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmMzE4NmRiZDJmMWNkMDAzN2VmZDMyNiIsImF1ZCI6ImNvZmZlZXNob3AiLCJpYXQiOjE1OTg0MTUwMDYsImV4cCI6MTU5ODQyMjIwNiwiYXpwIjoiYkV3UFJKYnNwN3ZnNmZxREQ1NFZVM3ZOc3BTQ05zRzIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpkcmlua3MiLCJnZXQ6ZHJpbmtzLWRldGFpbCIsInBhdGNoOmRyaW5rcyIsInBvc3Q6ZHJpbmtzIl19.VirehqKaHftVX4-1kmWSPy-ZVYaLsoouFmHqew8CRYFVnBi3yJ2o7X5iAPisjuzuGrBnjU6cN9WjlPRQXmINFybf67fm7iHgUReR-t3X-dlLa_8UBjk45Fz7tt3vj_uTghsGPRcJUbXvF2rcT9LPVUqYAxofhUkTCFUE6IjGuzoOT9sqshT4LM5Cb_JtSInsK5BYay-ZQHDIM05wImnGaAP9-NsBUJ249EYIl5WbPvs1fkz1M0OQc1kUB4M4dDnP9zFkc2CT3XifvmHaSCpT8KaRIQkko1YwgEyynWkcDlAiBg5QWbNs1x3nnMPiOvyS4voSm29X92Wc1QHhSHI17g
-# barista new: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlNFYWpVclc4RFZubFIta1U4b2QwRyJ9.eyJpc3MiOiJodHRwczovL3VuMWNvcm4udXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNDQ3MmQ1OWM1MTA2MDA2ZGUxMzQzNiIsImF1ZCI6ImNvZmZlZXNob3AiLCJpYXQiOjE1OTg0MjExNjIsImV4cCI6MTU5ODQyODM2MiwiYXpwIjoiYkV3UFJKYnNwN3ZnNmZxREQ1NFZVM3ZOc3BTQ05zRzIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpkcmlua3MtZGV0YWlsIl19.XJE4X8_tBrqFaV6-2ubjge9gmi3devqzjC80UWX6w_x-5bhraaHBfnUXpfNz0-jBmECJMCADpiS7OVgM89ksVHkcl3vs58y9lsSk9NaeeIdgVPnFjFOloJBb5IqQO76NSnwtzYiKNcQE5N8ThLQJox4jvfhq4CekjoKKrbLTK7vvHuXBHCWhrt_sv9dulUX8gzYxBYOMgvQzNwt-m7x8Dh0DcBrDh9dT-pQ5Bk7UJ9wgtzD-FqVTOE5ZpFzYTsmYoUXTP4c3FgCkt-EAGLupyjvwnl6Iy0hGDT6gKMlpS3dI7KOXy9TcWFDpYxIrUW8a7eqlcrMbr8cIFCva-56_cQ
+# manager new: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlNFYWpVclc4RFZubFIta1U4b2QwRyJ9.eyJpc3MiOiJodHRwczovL3VuMWNvcm4udXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmMzE4NmRiZDJmMWNkMDAzN2VmZDMyNiIsImF1ZCI6ImNvZmZlZXNob3AiLCJpYXQiOjE1OTg0NTM3NjMsImV4cCI6MTU5ODQ2MDk2MywiYXpwIjoiYkV3UFJKYnNwN3ZnNmZxREQ1NFZVM3ZOc3BTQ05zRzIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpkcmlua3MiLCJnZXQ6ZHJpbmtzLWRldGFpbCIsInBhdGNoOmRyaW5rcyIsInBvc3Q6ZHJpbmtzIl19.Cv3-hZ9eMCEilUnWEECDTt_aUbTRaMkSWkuHvJmrytPtqOFJJJTE7mYCjgvi-6ZURBu2p3Z-awpofmq_qMdwMDbRJ7hwejkj90DNwxe-BhxlXrCPM-oWLxDK1CyBTVXq5xxIi_jhJ29Yg3xE2awgAASYu40E2J_xba8GaW5M-ZlcH8Eyw-XXwn5nTHJFxnvCLunupXNhn6r5bz3oFlKcGYqrea_P6nPf_pdjYjEnRKf_frxmwmTaBegOgB5v3aRCo-2WfbnFgj-RbvfVvihukCJ6fklOy3Mji_fMjF7mqF5-LCpEpempw1MoSp6nZ7YxBab_os6Qyi25erfe1dqv9A
+# barista new: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlNFYWpVclc4RFZubFIta1U4b2QwRyJ9.eyJpc3MiOiJodHRwczovL3VuMWNvcm4udXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNDQ3MmQ1OWM1MTA2MDA2ZGUxMzQzNiIsImF1ZCI6ImNvZmZlZXNob3AiLCJpYXQiOjE1OTg0NTM5NjQsImV4cCI6MTU5ODQ2MTE2NCwiYXpwIjoiYkV3UFJKYnNwN3ZnNmZxREQ1NFZVM3ZOc3BTQ05zRzIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpkcmlua3MtZGV0YWlsIl19.X_qKttfZYVXIr2G0NUpjQ8jFvhm0xXhFvI_RhXUmn_EC9f4vlZJC52efzjQ301toWWBElmBiHV1hmjgCmvpYNujLeEy39_ltY-AwQEGyezKnR-C9NXi0-2jlIN1NebsqgGhMPJgkF1pXfZmEfo-qDiZwNOHp-3fcVKw8IpcDOFOJGaButr8CukxFo4jmFFagtrEqGCfjo295dc0h8RvvWSsw9CNBWzpdEvWRfqX7p5FTcEYVthq_YcZftWO7L11ncvN2U39e_tKwbLKUEqD9ZaNzU9ln5C96JNp2Wr4zKpNxpm3XdB8fcwX8zTNBfVjg5CnjqvwYBcHYbUhmSqtdsQ
 app = Flask(__name__)
 setup_db(app)
 CORS(app)
@@ -49,7 +49,7 @@ def get_drinks():
     # return the json object
     return jsonify({
         'success': True,
-        'drinks': short_drink
+        'drinks': short_drinks
     }), 200
 
 '''
@@ -62,12 +62,9 @@ def get_drinks():
 '''
 @app.route('/drinks-detail', methods=['GET'])
 @requires_auth('get:drinks-detail')
-def drinks(token):
+def get_drinks_detail(token):
     # getting all the drinks from the database
     drinks = Drink.query.all()
-
-    if(len(drinks) == 0):
-        abort(404)
 
     long_drinks = []
 
@@ -77,7 +74,7 @@ def drinks(token):
 
     return jsonify({
         'success': True,
-        'drinks': long_drink      
+        'drinks': long_drinks    
     }), 200
 
 '''
@@ -91,9 +88,13 @@ def drinks(token):
 '''
 @app.route('/drinks', methods=['POST'])
 @requires_auth('post:drinks-detail')
-def drinks(token):
+def create_drink(token):
     # getting the json response body
     body = request.get_json()
+
+    # seeing if the json includes the required data
+    if not ('title' in body and 'recipe' in body):
+        abort(400)
 
     # getting each element from the body
     new_recipe = body.get('recipe')
@@ -101,15 +102,12 @@ def drinks(token):
 
     # attempting to add the new drink, else throw an unprocessable error
     try:
-        drink = Drink(recipe=new_recipe, title=new_title)
+        drink = Drink(recipe=json.dumps(new_recipe), title=new_title)
         drink.insert()
-
-        # getting the long representation of the drink
-        long_drink = drink.long()
 
         return jsonify({
             'success': True,
-            'drinks': long_drink    
+            'drinks': [drink.long()]    
         }), 200    
     except:
         abort(422)
@@ -127,7 +125,7 @@ def drinks(token):
 '''
 @app.route('/drinks/<int:drink_id>', methods=['PATCH'])
 @requires_auth('patch:drinks')
-def drinks(token, drink_id):
+def update_drink(token, drink_id):
     # search the database for the given drink_id
     drink = Drink.query.filter_by(id=drink_id).one_or_none()
 
@@ -143,9 +141,9 @@ def drinks(token, drink_id):
     new_title = body.get('title')
 
     try:
-        # checking to see 
+        # checking to see which item will be affected
         if (new_recipe):
-            drink.recipe = new_recipe
+            drink.recipe = json.dumps(new_recipe)
         if (new_title):
             drink.title = new_title
     except:
@@ -153,11 +151,9 @@ def drinks(token, drink_id):
    
     drink.update()
 
-    long_drink = drink.long()
-
     return jsonify({
         'success': True,
-        'drinks': long_drink
+        'drinks': [drink.long()]
     }), 200
 
 '''
@@ -172,22 +168,21 @@ def drinks(token, drink_id):
 '''
 @app.route('/drinks/<int:drink_id>', methods=['DELETE'])
 @requires_auth('delete:drinks')
-def drinks(token, drink_id):
-    # attempting to get the drink to delete
-    try:
-      drink = Drink.query.filter_by(id=drink).one_or_none()
+def delete_drink(token, drink_id):
+    # gettint the drink to delete
+    drink = Drink.query.filter_by(id=drink).one_or_none()
 
-      if drnk is None:
-        abort(404)
+    if drnk is None:
+    abort(404)
       
+    try:
       # delete the question if it exists and redisplay the questions
       drink.delete()
 
       return jsonify({
         'success': True,
-        'deleted': drink_id,
-      }), 200
-    
+        'deleted': drink_id
+      }), 200    
     except:
       abort(422)
 
@@ -218,7 +213,7 @@ def authentication_eror(error):
     return jsonify({
         'success': False,
         'error': error.status_code,
-        'message': get_error_message(AuthError.error, "Authentication failure")
+        'message': error.error['description']
     }), error.status_code
 
 @app.errorhandler(400)
