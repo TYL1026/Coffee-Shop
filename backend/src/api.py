@@ -48,8 +48,8 @@ def get_drinks():
 
     # return the json object
     return jsonify({
-        "success": True, 
-        "drinks": short_drinks
+        'success': True,
+        'drinks': short_drink
     }), 200
 
 '''
@@ -76,8 +76,8 @@ def drinks(token):
         long_drinks.append(drink.long())
 
     return jsonify({
-        "success": True,   
-        "drinks": long_drinks      
+        'success': True,
+        'drinks': long_drink      
     }), 200
 
 '''
@@ -108,8 +108,8 @@ def drinks(token):
         long_drink = drink.long()
 
         return jsonify({
-            "success": True,   
-            "drinks": long_drink    
+            'success': True,
+            'drinks': long_drink    
         }), 200    
     except:
         abort(422)
@@ -156,8 +156,8 @@ def drinks(token, drink_id):
     long_drink = drink.long()
 
     return jsonify({
-        "success": True,
-        "drinks": long_drink
+        'success': True,
+        'drinks': long_drink
     }), 200
 
 '''
@@ -180,13 +180,14 @@ def drinks(token, drink_id):
       if drnk is None:
         abort(404)
       
-      # delete the drink if it exists
+      # delete the question if it exists and redisplay the questions
       drink.delete()
 
       return jsonify({
         'success': True,
-        'deleted': drink_id
-      }), 200    
+        'deleted': drink_id,
+      }), 200
+    
     except:
       abort(422)
 
