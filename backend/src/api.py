@@ -148,14 +148,14 @@ def update_drink(token, drink_id):
     body = request.get_json()
 
     # getting each element from the body
-    new_recipe = body.get('recipe')
-    new_title = body.get('title')
+    # new_recipe = body.get('recipe')
+    # new_title = body.get('title')
 
     try:
         # checking to see which item will be affected
-        if ('recipe' in data):
+        if ('recipe' in body):
             drink.recipe = json.dumps(body['recipe'])
-        if ('title' in data):
+        if ('title' in body):
             drink.title = new_title
     except:
         abort(400)
